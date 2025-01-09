@@ -1,0 +1,88 @@
+.preview-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    background: #1a1a2e;
+    color: #fff;
+    font-family: 'Outfit', sans-serif;
+  }
+  
+  .preview-header {
+    text-align: center;
+    padding: 40px;
+    font-size: 2rem;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 500;
+    background: linear-gradient(to bottom, #00AFFF 0%, #66D9FF 50%, #B3E9FF 100%); 
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent; 
+    background-clip: text;  
+  }
+  
+  .preview-content {
+    display: flex;
+    flex: 1;
+  }
+  
+  .left-box {
+    flex: 1;
+    padding: 20px;
+    background: #2c2c54;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+  }
+  
+  .right-box {
+    flex: 1;
+    padding: 20px;
+    background-image: "url('/assets/previewpage/bg2.png')"; /* Add your right-side background image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  
+  .empty-message {
+    color: #ccc;
+    text-align: center;
+    font-size: 1.5rem;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  th, td {
+    border: 1px solid #444;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  th {
+    background: #333;
+  }
+  
+  button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #0ef;
+    color: #1a1a2e;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #00f5d4;
+  }
+  
