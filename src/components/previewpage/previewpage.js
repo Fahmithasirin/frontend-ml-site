@@ -16,12 +16,12 @@ function PreviewPage() {
 
   const handleCleanData = () => {
     alert("Data cleaning initiated!");
-    // Add your data cleaning logic here
   };
 
   return (
-    <div className="preview-page" >
-      <div className="preview-header">
+    <div className="preview-page" style={{ background: "url('/assets/previewpage/bg1.png') no-repeat right ", backgroundSize: "contain", backgroundColor: "#03001B"  }} >
+      <div className="preview-header" style={{ background: "url('/assets/previewpage/bg2.png') no-repeat center ", backgroundSize: "contain", }}>
+      <img src="/assets/homepage/Logo.png" alt="AlgoStudio Logo" className="logo" />
         PREVIEW THE DATA
       </div>
       <div className="preview-content">
@@ -29,12 +29,15 @@ function PreviewPage() {
           {filename ? (
             <DataPreview filename={filename} onCleanData={handleCleanData} />
           ) : (
-            <div className="empty-message">No data available for preview.</div>
+            <div className="empty-message">
+              No data available for preview.
+            </div>
           )}
         </div>
-        <div className="right-box">
+        <div className="right-box" >
           <FileUpload onUploadSuccess={handleUploadSuccess} onCancelSuccess={handleCancelSuccess} />
         </div>
+
       </div>
     </div>
   );

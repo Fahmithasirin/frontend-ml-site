@@ -11,6 +11,7 @@ function Homepage() {
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
+        backgroundColor: "#03001B",
       }}>
       <header className="homepage-header">
         <img src="/assets/homepage/Logo.png" alt="AlgoStudio Logo" className="homepage-logo" />

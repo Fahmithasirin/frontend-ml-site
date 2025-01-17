@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./fileupload.css"; // Ensure you import the updated CSS
 
 function FileUpload({ onUploadSuccess, onCancelSuccess }) {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -60,10 +61,12 @@ function FileUpload({ onUploadSuccess, onCancelSuccess }) {
   };
 
   return (
-    <div>
+    <div className="file-upload-container">
       <input type="file" onChange={handleFileChange} />
       <button onClick={handleUpload}>Upload File</button>
-      <button onClick={handleCancel} disabled={!uploadedFilename}>Cancel</button>
+      <button onClick={handleCancel} disabled={!uploadedFilename}>
+        Cancel
+      </button>
     </div>
   );
 }
