@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import "./fileupload.css"; // Ensure you import the updated CSS
+import "./fileupload.css"; 
 
 function FileUpload({ onUploadSuccess, onCancelSuccess }) {
   const [selectedFile, setSelectedFile] = useState(null);
@@ -23,9 +23,8 @@ function FileUpload({ onUploadSuccess, onCancelSuccess }) {
       .post("http://127.0.0.1:5000/upload", formData)
       .then((response) => {
         console.log("Upload successful:", response.data);
-        alert(response.data.message);
         setUploadedFilename(response.data.filename);
-        onUploadSuccess(response.data.filename); // Pass the filename to parent
+        onUploadSuccess(response.data.filename); 
       })
       .catch((error) => {
         console.error("Error uploading file:", error);
@@ -43,12 +42,10 @@ function FileUpload({ onUploadSuccess, onCancelSuccess }) {
       .delete(`http://127.0.0.1:5000/cancel/${uploadedFilename}`)
       .then((response) => {
         console.log("File deletion successful:", response.data);
-        alert(response.data.message);
         setUploadedFilename(null);
-        setSelectedFile(null); // Reset the selected file
-        onCancelSuccess(); // Notify parent of cancellation
-
-        // Reset the file input element
+        setSelectedFile(null); 
+        onCancelSuccess(); 
+       
         const fileInput = document.querySelector('input[type="file"]');
         if (fileInput) {
           fileInput.value = "";
@@ -62,7 +59,7 @@ function FileUpload({ onUploadSuccess, onCancelSuccess }) {
 
   return (
     <div className="file-upload-container">
-      <input type="file" onChange={handleFileChange} />
+      <input type="file" onChange={handleFileChange} accept=".csv, .xlsx"  />
       <button onClick={handleUpload}>Upload File</button>
       <button onClick={handleCancel} disabled={!uploadedFilename}>
         Cancel

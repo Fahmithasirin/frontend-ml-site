@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-function DataPreview({ filename, onCleanData }) {
+function DataPreview({ filename }) {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [rowLimit] = useState(5); // Default to 5 rows
 
   useEffect(() => {
     setLoading(true);
@@ -13,7 +14,10 @@ function DataPreview({ filename, onCleanData }) {
     axios
       .get(`http://127.0.0.1:5000/preview/${filename}`)
       .then((response) => {
-        let fetchedData = typeof response.data === "string" ? JSON.parse(response.data.replace(/NaN/g, "null")) : response.data;
+        let fetchedData =
+          typeof response.data === "string"
+            ? JSON.parse(response.data.replace(/NaN/g, "null"))
+            : response.data;
         if (Array.isArray(fetchedData)) {
           setData(fetchedData);
         } else {
@@ -42,7 +46,7 @@ function DataPreview({ filename, onCleanData }) {
           </tr>
         </thead>
         <tbody>
-          {data.map((row, index) => (
+          {data.slice(0, rowLimit).map((row, index) => (
             <tr key={index}>
               {Object.values(row).map((value, idx) => (
                 <td key={idx}>{value}</td>
@@ -51,10 +55,6 @@ function DataPreview({ filename, onCleanData }) {
           ))}
         </tbody>
       </table>
-      
-      <button onClick={onCleanData} style={{ marginTop: "20px" }}>
-        Clean Data
-      </button>
     </div>
   );
 }
